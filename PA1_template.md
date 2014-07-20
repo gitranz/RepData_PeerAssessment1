@@ -6,7 +6,6 @@
 ## Loading and preprocessing the data
 
 This is the R Code for loading the Data used for this Peer Assessment.
-(please feel free and change the path)
 
 
 ```r
@@ -84,6 +83,7 @@ Calculate the mean and median total number of steps taken per day
 
 
 ```r
+# mean total number of steps of the aggregated original dataset (ignore NA)
 (c.mean <- mean(agg.data.all$x, na.rm = TRUE))
 ```
 
@@ -92,6 +92,7 @@ Calculate the mean and median total number of steps taken per day
 ```
 
 ```r
+# median total number of steps of the aggregated original dataset (ignore NA)
 (c.median <- median(agg.data.all$x, na.rm = TRUE))
 ```
 
@@ -121,10 +122,20 @@ Which 5-minute interval, on average across all the days in the dataset, contains
 mmax <- agg.data[agg.data$x == max(agg.data$x), ]
 
 # extract 5-minute interval on the aggregated data that contains the maximum number of steps
-maxint <- as.numeric(as.character(mmax[1,1]))
+(maxint <- as.numeric(as.character(mmax[1,1])))
+```
 
+```
+## [1] 835
+```
+
+```r
 # extract the number of steps
-maxstep <- mmax[1,2]
+(maxstep <- mmax[1,2])
+```
+
+```
+## [1] 206.2
 ```
 
 After aggregate the data and calculating the maximum value, we can plot the average daily activity pattern.

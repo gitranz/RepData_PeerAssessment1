@@ -183,8 +183,7 @@ hljs.initHighlightingOnLoad();
 
 <h2>Loading and preprocessing the data</h2>
 
-<p>This is the R Code for loading the Data used for this Peer Assessment.
-(please feel free and change the path)</p>
+<p>This is the R Code for loading the Data used for this Peer Assessment.</p>
 
 <pre><code class="r">filename &lt;- &quot;activity&quot;
 
@@ -247,13 +246,15 @@ print(p)
 
 <p>Calculate the mean and median total number of steps taken per day</p>
 
-<pre><code class="r">(c.mean &lt;- mean(agg.data.all$x, na.rm = TRUE))
+<pre><code class="r"># mean total number of steps of the aggregated original dataset (ignore NA)
+(c.mean &lt;- mean(agg.data.all$x, na.rm = TRUE))
 </code></pre>
 
 <pre><code>## [1] 10766
 </code></pre>
 
-<pre><code class="r">(c.median &lt;- median(agg.data.all$x, na.rm = TRUE))
+<pre><code class="r"># median total number of steps of the aggregated original dataset (ignore NA)
+(c.median &lt;- median(agg.data.all$x, na.rm = TRUE))
 </code></pre>
 
 <pre><code>## [1] 10765
@@ -275,10 +276,17 @@ print(p)
 <pre><code class="r">mmax &lt;- agg.data[agg.data$x == max(agg.data$x), ]
 
 # extract 5-minute interval on the aggregated data that contains the maximum number of steps
-maxint &lt;- as.numeric(as.character(mmax[1,1]))
+(maxint &lt;- as.numeric(as.character(mmax[1,1])))
+</code></pre>
 
-# extract the number of steps
-maxstep &lt;- mmax[1,2]
+<pre><code>## [1] 835
+</code></pre>
+
+<pre><code class="r"># extract the number of steps
+(maxstep &lt;- mmax[1,2])
+</code></pre>
+
+<pre><code>## [1] 206.2
 </code></pre>
 
 <p>After aggregate the data and calculating the maximum value, we can plot the average daily activity pattern.</p>
